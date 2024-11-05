@@ -58,14 +58,21 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
+    function playGame(){
+        
+        while (computerScore < 3 && humanScore < 3) {
+            let humanSelection = getHumanChoice();
+            let computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            console.log(`Computer Wins: ${computerScore}`)
+            console.log(`Human Wins: ${humanScore}`)
+        }
 
-    playRound(humanSelection, computerSelection);
+        if(computerScore > humanScore) {
+            alert('Computer WIN');
+        } else {
+            alert('You WIN');
+        }
 
-    console.log(`Human Score is ${humanScore}`);
-    console.log(`Computer Score is ${computerScore}`)
-
-
-
-
+    }
+    playGame();
