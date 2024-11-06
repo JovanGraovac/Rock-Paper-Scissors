@@ -13,16 +13,16 @@ function getComputerChoice () {
 
 function getHumanChoice () {
 
-    let humanInput = prompt("Enter your choice. Rock, Paper or Scissors")
-    let toLowHumanInput = humanInput.toLowerCase()
+    let humanInput = prompt("Enter your choice. Rock, Paper or Scissors");
+    let toLowHumanInput = humanInput.toLowerCase();
     
     if (toLowHumanInput != 'rock' && toLowHumanInput != 'paper' && toLowHumanInput != 'scissors') {
         alert('Your choice is wrong. Enter again');
-         return getHumanChoice ()
+        return getHumanChoice();
     }
     
     if (toLowHumanInput == 'rock') {
-        return 'rock'
+        return 'rock';
     } else if (toLowHumanInput == 'paper') {
         return 'paper';
     } else if (toLowHumanInput == 'scissors') {
@@ -64,8 +64,8 @@ function playRound(humanChoice, computerChoice) {
             let humanSelection = getHumanChoice();
             let computerSelection = getComputerChoice();
             playRound(humanSelection, computerSelection);
-            console.log(`Computer Wins: ${computerScore}`)
-            console.log(`Human Wins: ${humanScore}`)
+            console.log(`Computer Wins: ${computerScore}`);
+            console.log(`Human Wins: ${humanScore}`);
         }
 
         if(computerScore > humanScore) {
