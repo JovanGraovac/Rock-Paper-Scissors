@@ -1,4 +1,4 @@
-function getComputerChoice () {
+function getComputerChoice() {
 
     let randomNumber = Math.floor(Math.random() * 3);
 
@@ -9,25 +9,6 @@ function getComputerChoice () {
     } else {
         return 'scissors';
     }
-}
-
-function getHumanChoice () {
-
-    let humanInput = prompt("Enter your choice. Rock, Paper or Scissors");
-    let toLowHumanInput = humanInput.toLowerCase();
-    
-    if (toLowHumanInput != 'rock' && toLowHumanInput != 'paper' && toLowHumanInput != 'scissors') {
-        alert('Your choice is wrong. Enter again');
-        return getHumanChoice();
-    }
-    
-    if (toLowHumanInput == 'rock') {
-        return 'rock';
-    } else if (toLowHumanInput == 'paper') {
-        return 'paper';
-    } else if (toLowHumanInput == 'scissors') {
-        return 'scissors';
-    }    
 }
 
     let humanScore = 0;
@@ -56,23 +37,15 @@ function playRound(humanChoice, computerChoice) {
     } else {
         alert('Its draw. You both choice ' + computerChoice);
     }
-}
 
-    function playGame(){
-        
-        while (computerScore < 3 && humanScore < 3) {
-            let humanSelection = getHumanChoice();
-            let computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
-            console.log(`Computer Wins: ${computerScore}`);
-            console.log(`Human Wins: ${humanScore}`);
-        }
+    const container = document.querySelector('#container');
+    container.textContent = `Human: ${humanScore} : ${computerScore} Computer`;
 
-        if(computerScore > humanScore) {
-            alert('Computer WIN');
-        } else {
-            alert('You WIN');
-        }
+    const winContainer = document.querySelector('#winContainer')
 
+    if (computerScore === 3) {
+        winContainer.textContent = 'Computer WIN';
+    } else if (humanScore == 3) {
+        winContainer.textContent = 'Human WIN';
     }
-    playGame();
+}
